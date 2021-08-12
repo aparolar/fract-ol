@@ -24,10 +24,16 @@ FLAGS		=	-Wall -Wextra -Werror
 
 all:			$(NAME)
 
-$(NAME):
+$(NAME):		
 				make -C lib/libft
-				make -C lib/minilibx-linux
-				$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBXL) -o $(NAME)
+ifeq ($(shell uname),Linux)
+					make -C lib/minilibx-linux
+					$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBXL) -o $(NAME)
+else
+					make -C lib/minilibx_opengl
+					$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBX) -o $(NAME)
+endif
+
 
 $O%.o:			$(OBJS)
 				$(CC) $(FLAGS) -c $< -o $@

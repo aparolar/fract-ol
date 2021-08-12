@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 14:16:38 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/12 14:50:22 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/12 18:35:17 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,12 @@
 # define FRACTOL_H
 
 # include "../lib/libft/libft.h"
-# include "../lib/minilibx-linux/mlx.h"
-# include "../lib/minilibx-linux/mlx_int.h"
+# ifdef __linux
+#  include "../lib/minilibx-linux/mlx.h"
+#  include "../lib/minilibx-linux/mlx_int.h"
+# else
+#  include "../lib/minilibx_opengl/mlx.h"
+# endif
 # include "lmkeycodes.h"
 # include <math.h>
 # include <stdio.h>
