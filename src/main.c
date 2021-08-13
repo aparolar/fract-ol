@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/26 12:59:21 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/13 11:22:22 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/13 16:54:23 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ static int	check_params(int argc, char **argv)
 	if (argc < 2)
 	{	
 		ft_putstr("error. invalid parameters\n");
-		exit (0);
+		exit(0);
 	}
 	else
 	{
 		if (argv[1][0] != '1' && argv[1][0] != '2')
 		{
 			print_options();
-			exit (0);
+			exit(0);
 		}
 		else
 			return (ft_atoi(argv[1]));

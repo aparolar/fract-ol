@@ -6,17 +6,24 @@ O			=	obj/
 
 I			=	inc/
 
-SRCS		=	$(wildcard $S*.c)
+SRCS		=	$Smain.c\
+				$Scolor.c\
+				$Sfinish.c\
+				$Sfractal.c\
+				$Shook.c\
+				$Simage.c\
+				$Sutils1.c
 
 OBJS		=	$(SRCS:$S%.c=$O%.o)
 
 LIBFT		=	-L lib/libft -lft
-
 MLIBX		=	-L lib/minilibx_opengl -lmlx -framework OpenGL -framework AppKit
 MLIBXL		=	-L lib/minilibx-linux -lmlx_Linux -lX11 -lXext
 LIBMATH		=	-lm
 
-CC			=	@gcc #-g3 -fsanitize=address #-O3 #clang
+CC			=	@gcc
+
+DBGF		=	-g3 -fsanitize=address
 
 FLAGS		=	-Wall -Wextra -Werror
 
@@ -25,7 +32,7 @@ all:			$(NAME)
 $(NAME):		
 					git submodule init
 					git submodule update
-					make -C lib/libft
+					make -s -C lib/libft
 ifeq ($(shell uname),Linux)
 					@make -s -C lib/minilibx-linux 2>/dev/null
 					$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBXL) -o $(NAME)
@@ -38,10 +45,7 @@ endif
 $O%.o:			$(OBJS)
 				$(CC) $(FLAGS) -c $< -o $@
 
-re:				fclean
-				@make fclean -C lib/libft
-				@make clean	-C lib/minilibx-linux
-				@make clean  -C lib/minilibx_opengl
+re:				fullclean
 				$(MAKE)
 
 clean:
@@ -54,9 +58,8 @@ test:			re
 				./fract_ol 1
 
 fullclean:		fclean
-				make fclean -C lib/libft
-				make clean -C lib/minilibx-linux
-
-dbg_test:		re
+				@make fclean -s -C lib/libft 2>/dev/null
+				@make clean  -s -C lib/minilibx-linux 2>/dev/null
+				@make clean  -s -C lib/minilibx_opengl 2>/dev/null
 
 .PHONY:			all re clean fclean
