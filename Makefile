@@ -14,7 +14,7 @@ HEADER		=	-I $Ifract-ol.h
 
 LIBFT		=	-L lib/libft -lft
 
-MLIBX		=	-L lib/minilibx-linux -lmlx -framework OpenGL -framework AppKit
+MLIBX		=	-L lib/minilibx_opengl -lmlx -framework OpenGL -framework AppKit
 MLIBXL		=	-L lib/minilibx-linux -lmlx_Linux -lX11 -lXext
 LIBMATH		=	-lm
 
