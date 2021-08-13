@@ -10,27 +10,27 @@ SRCS		=	$(wildcard $S*.c)
 
 OBJS		=	$(SRCS:$S%.c=$O%.o)
 
-HEADER		=	-I $Ifract-ol.h
-
 LIBFT		=	-L lib/libft -lft
 
 MLIBX		=	-L lib/minilibx_opengl -lmlx -framework OpenGL -framework AppKit
 MLIBXL		=	-L lib/minilibx-linux -lmlx_Linux -lX11 -lXext
 LIBMATH		=	-lm
 
-CC			=	gcc -g3 -fsanitize=address #-O3 #clang
+CC			=	@gcc #-g3 -fsanitize=address #-O3 #clang
 
 FLAGS		=	-Wall -Wextra -Werror
 
 all:			$(NAME)
 
 $(NAME):		
-				make -C lib/libft
+					git submodule init
+					git submodule update
+					make -C lib/libft
 ifeq ($(shell uname),Linux)
-					make -C lib/minilibx-linux
+					@make -s -C lib/minilibx-linux 2>/dev/null
 					$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBXL) -o $(NAME)
 else
-					make -C lib/minilibx_opengl
+					@make -s -C lib/minilibx_opengl 2>/dev/null
 					$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBX) -o $(NAME)
 endif
 
@@ -39,8 +39,9 @@ $O%.o:			$(OBJS)
 				$(CC) $(FLAGS) -c $< -o $@
 
 re:				fclean
-				make re -C lib/libft
-				make re -C lib/minilibx-linux
+				@make fclean -C lib/libft
+				@make clean	-C lib/minilibx-linux
+				@make clean  -C lib/minilibx_opengl
 				$(MAKE)
 
 clean:

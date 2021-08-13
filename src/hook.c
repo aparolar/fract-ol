@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 13:55:05 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/12 14:48:33 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/13 12:56:54 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,18 @@ static void	key_change_julia(int keycode, t_render *render)
 
 int	main_key_hook(int keycode, t_render *render)
 {
+	printf("Keycode = %d\n", keycode);
 	if (keycode == KEY_ESC)
 	{
 		free_all(render);
+		system("leaks fract_ol");
 		exit(EXIT_SUCCESS);
 	}
 	key_move(keycode, render);
 	key_change_julia(keycode, render);
-	if (keycode == KEY_PLUS)
+	if (keycode == KEY_W)
 		render->zoom *= 1.25f;
-	if (keycode == KEY_MINUS && render->zoom / 1.25f >= 1)
+	if (keycode == KEY_S && render->zoom / 1.25f >= 1)
 		render->zoom /= 1.25f;
 	if (keycode == KEY_0 && render->iter + 10 < 500)
 		render->iter += 10;
@@ -75,7 +77,7 @@ int	render_next_frame(void *render)
 	int			y;
 
 	tr = (t_render *)render;
-	mlx_do_sync(tr->vars.mlx);
+	//mlx_do_sync(tr->vars.mlx);
 	y = 0;
 	while (y < tr->h)
 	{
