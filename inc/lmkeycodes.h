@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:42:42 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/13 11:09:13 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/13 11:12:34 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 #  define KEY_4           XK_4
 #  define KEY_9           XK_9
 # else
-#  include "vkvcodes.h"
+#  include "kvkcodes.h"
 #  define KEY_LEFT        kVK_LEFT
 #  define KEY_RIGHT       kVK_RIGHT
 #  define KEY_DOWN        kVK_DOWN
