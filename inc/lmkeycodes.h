@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:42:42 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/13 14:22:30 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/13 11:09:13 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,22 @@
 #  define KEY_4           XK_4
 #  define KEY_9           XK_9
 # else
-#  include "Events.h"
-#  define KEY_LEFT        kVK_LeftArrow
-#  define KEY_RIGHT       kVK_RightArrow
-#  define KEY_DOWN        kVK_DownArrow
-#  define KEY_UP          kVK_UpArrow
-#  define KEY_A           kVK_ANSI_A
-#  define KEY_D           kVK_ANSI_D
-#  define KEY_S           kVK_ANSI_S
-#  define KEY_W           kVK_ANSI_W
-#  define KEY_ESC         kVK_Escape
-#  define KEY_PLUS        kVK_ANSI_KeypadPlus
-#  define KEY_MINUS       kVK_ANSI_Minus
-#  define KEY_0           kVK_ANSI_0
-#  define KEY_1           kVK_ANSI_1
-#  define KEY_2           kVK_ANSI_2
-#  define KEY_3           kVK_ANSI_3
-#  define KEY_4           kVK_ANSI_4
-#  define KEY_9           kVK_ANSI_9
+#  include "vkvcodes.h"
+#  define KEY_LEFT        kVK_LEFT
+#  define KEY_RIGHT       kVK_RIGHT
+#  define KEY_DOWN        kVK_DOWN
+#  define KEY_UP          kVK_UP
+#  define KEY_A           kVK_A
+#  define KEY_D           kVK_D
+#  define KEY_S           kVK_S
+#  define KEY_W           kVK_W
+#  define KEY_ESC         kVK_ESCAPE
+#  define KEY_PLUS        kVK_PAD_ADD
+#  define KEY_MINUS       kVK_MINUS
+#  define KEY_0           kVK_0
+#  define KEY_1           kVK_1
+#  define KEY_2           kVK_2
+#  define KEY_3           kVK_3
+#  define KEY_4           kVK_4
+#  define KEY_9           kVK_9
 # endif
