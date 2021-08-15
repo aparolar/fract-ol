@@ -6,15 +6,13 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:42:42 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/13 16:49:13 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/15 12:20:28 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* keycode */
 #ifndef LMKEYCODES_H
 # define LMKEYCODES_H
 # ifdef __linux
-#  include <X11/keysymdef.h>
 #  define KEY_LEFT        0xff51
 #  define KEY_RIGHT       0xff53
 #  define KEY_DOWN        0xff54

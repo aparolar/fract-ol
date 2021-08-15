@@ -10,7 +10,7 @@
 			"name": "(gdb) Iniciar",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/fract_ol",
+			"program": "${workspaceFolder}/fractol",
 			"args": ["1"],
 			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",

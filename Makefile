@@ -1,4 +1,4 @@
-NAME		=	fract_ol
+NAME		=	fractol
 
 S			=	src/
 
@@ -30,23 +30,25 @@ FLAGS		=	-Wall -Wextra -Werror
 all:			$(NAME)
 
 $(NAME):		
-					git submodule init
-					git submodule update
-					make -s -C lib/libft
-ifeq ($(shell uname),Linux)
-					@make -s -C lib/minilibx-linux 2>/dev/null
-					$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBXL) -o $(NAME)
-else
-					@make -s -C lib/minilibx_opengl 2>/dev/null
-					$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBX) -o $(NAME)
-endif
+				git submodule init
+				git submodule update
+				make -s -C lib/libft
 
+ifeq ($(shell uname),Linux)
+				@make -s -C lib/minilibx-linux 2>/dev/null
+				$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBXL) -o $(NAME)
+else
+				@make -s -C lib/minilibx_opengl 2>/dev/null
+				$(CC) $(FLAGS) $(SRCS) $(LIBMATH) $(LIBFT) $(MLIBX) -o $(NAME)
+endif
 
 $O%.o:			$(OBJS)
 				$(CC) $(FLAGS) -c $< -o $@
 
 re:				fullclean
 				$(MAKE)
+
+bonus:			re
 
 clean:
 				rm -rf $O*.o
@@ -55,11 +57,11 @@ fclean:			clean
 				rm -rf $(NAME)
 
 test:			re
-				./fract_ol 1
+				./$(NAME) 1
 
 fullclean:		fclean
 				@make fclean -s -C lib/libft 2>/dev/null
 				@make clean  -s -C lib/minilibx-linux 2>/dev/null
 				@make clean  -s -C lib/minilibx_opengl 2>/dev/null
 
-.PHONY:			all re clean fclean
+.PHONY:			all re clean fclean bonus
