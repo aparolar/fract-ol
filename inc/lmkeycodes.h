@@ -6,7 +6,7 @@
 /*   By: aparolar <aparolar@student.42madrid.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/28 16:42:42 by aparolar          #+#    #+#             */
-/*   Updated: 2021/08/15 12:20:28 by aparolar         ###   ########.fr       */
+/*   Updated: 2021/08/16 10:38:54 by aparolar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 #  define KEY_4           0x0034
 #  define KEY_9           0x0039
 # else
-#  include "KVKcodes.h"
+#  include "kvkcodes.h"
 #  define KEY_LEFT        KVK_LEFT
 #  define KEY_RIGHT       KVK_RIGHT
 #  define KEY_DOWN        KVK_DOWN
